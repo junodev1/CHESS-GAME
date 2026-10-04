@@ -1,0 +1,55 @@
+const GameState = {
+    board: [],
+    turn: "white",
+    selected: null,
+    legalMoves: [],
+    history: [],
+    captured: {
+        white: [],
+        black: []
+    },
+    gameMode: "ai",
+    aiDifficulty: "medium",
+    gameStartedAt: null,
+    gameEndedAt: null,
+    result: null,
+    players: {
+        white: "Player",
+        black: "Computer"
+    },
+    settings: {
+        theme: "classic",
+        boardTheme: "green",
+        animations: true,
+        sounds: true,
+        hints: true,
+        showCoordinates: true,
+        autoSave: true
+    }
+};
+
+const InitialBoard = [
+    ["br","bn","bb","bq","bk","bb","bn","br"],
+    ["bp","bp","bp","bp","bp","bp","bp","bp"],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    ["wp","wp","wp","wp","wp","wp","wp","wp"],
+    ["wr","wn","wb","wq","wk","wb","wn","wr"]
+];
+
+function resetGameState() {
+    GameState.board = structuredClone(InitialBoard);
+    GameState.turn = "white";
+    GameState.selected = null;
+    GameState.legalMoves = [];
+    GameState.history = [];
+    GameState.captured = {
+        white: [],
+        black: []
+    };
+    GameState.gameStartedAt = Date.now();
+    GameState.gameEndedAt = null;
+    GameState.result = null;
+}
