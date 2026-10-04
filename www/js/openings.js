@@ -11,23 +11,20 @@ const OPENINGS = {
 };
 
 function detectOpening() {
-    const moves = GameState.history
-        .map(move => move.notation)
-        .slice(0, 8);
+    const moves = GameState.history.map(move => move.notation).slice(0, 8);
+    let bestName = "Unknown Opening";
+    let bestLength = 0;
 
-    let result = "Unknown Opening";
-
-    for (const sequence of Object.keys(OPENINGS)) {
+    for (const [sequence, name] of Object.entries(OPENINGS)) {
         const openingMoves = sequence.split(" ");
+        if (openingMoves.length <= bestLength || openingMoves.length > moves.length) continue;
 
-        if (
-            openingMoves.every(
-                (move, index) => moves[index] === move
-            )
-        ) {
-            result = OPENINGS[sequence];
+        const matches = openingMoves.every((move, index) => moves[index] === move);
+        if (matches) {
+            bestName = name;
+            bestLength = openingMoves.length;
         }
     }
 
-    return result;
+    return bestName;
 }
