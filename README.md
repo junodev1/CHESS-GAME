@@ -1,16 +1,21 @@
-CHESS-GAME/
+CHESS-GAME
 │
-├── .github/
-│   └── workflows/
-│       └── ...              ← GitHub Actions / CI
+├── .github
+│   └── workflows
+│       └── GitHub Actions configuration
 │
-├── www/
-│   ├── ...                  ← Actual chess game application
-│   ├── HTML files
-│   ├── CSS files
-│   ├── JavaScript files
-│   └── assets
+├── www
+│   └── Main application source
+│       ├── HTML files
+│       ├── CSS files
+│       ├── JavaScript files
+│       └── Assets
 │
-├── capacitor.config.json    ← Capacitor configuration
-├── package.json             ← Project dependencies & scripts
-└── README.md                ← Project documentation
+├── capacitor.config.json
+│   └── Capacitor configuration
+│
+├── package.json
+│   └── Dependencies and project scripts
+│
+└── README.md
+    └── Project documentation
